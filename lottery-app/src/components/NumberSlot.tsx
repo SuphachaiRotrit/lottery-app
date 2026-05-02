@@ -24,7 +24,7 @@ export default function NumberSlot({ value, size = 'medium', delay = 0, isAnimat
 
   if (!value) {
     return (
-      <div className={`${sizeClasses[size]} number-display rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/20 font-bold tracking-widest transition-all duration-300`}>
+      <div className={`${sizeClasses[size]} number-display rounded-xl bg-slate-100/50 border border-slate-200 flex items-center justify-center text-slate-300 font-bold tracking-widest transition-all duration-300`}>
         {size === 'small' ? '--' : '---'}
       </div>
     );
@@ -32,11 +32,11 @@ export default function NumberSlot({ value, size = 'medium', delay = 0, isAnimat
 
   return (
     <div
-      className={`${sizeClasses[size]} number-display rounded-xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/15 flex items-center justify-center font-bold tracking-widest transition-all duration-300 hover:border-white/30 hover:from-white/[0.12] hover:to-white/[0.04] hover:scale-105 ${isAnimating && !hasAnimated ? 'animate-slot-spin' : ''}`}
+      className={`${sizeClasses[size]} number-display rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center font-bold tracking-widest transition-all duration-300 hover:border-indigo-200 hover:shadow-md hover:scale-105 ${isAnimating && !hasAnimated ? 'animate-slot-spin' : ''}`}
       style={{ animationDelay: `${delay}ms` }}
       onAnimationEnd={handleAnimationEnd}
     >
-      <span className="bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
+      <span className="bg-linear-to-b from-slate-800 to-slate-600 bg-clip-text text-transparent">
         {value}
       </span>
     </div>

@@ -39,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="min-h-full flex flex-col bg-[#0a0a1a]"
+        className="min-h-full flex flex-col bg-[#f8fafc]"
         style={{ fontFamily: "var(--font-prompt), sans-serif" }}
       >
         {children}

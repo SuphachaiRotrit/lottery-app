@@ -22,6 +22,13 @@ export default function Home() {
     }
   }, []);
 
+  // ฟังก์ชันยิง Confetti
+  const triggerConfetti = useCallback(() => {
+    setConfettiKey(prev => prev + 1);
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 3000);
+  }, []);
+
   // ฟังก์ชันสุ่มรางวัล
   const handleDraw = useCallback(() => {
     if (isDrawing) return;
@@ -33,9 +40,8 @@ export default function Home() {
       setResult(newResult);
       saveResult(newResult);
 
-      setConfettiKey(prev => prev + 1);
-      setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 3000);
+      // เปิด confetti เพื่อฉลอง
+      triggerConfetti();
 
       setTimeout(() => {
         setIsAnimating(false);
@@ -54,18 +60,18 @@ export default function Home() {
     <>
       <Confetti key={confettiKey} active={showConfetti} />
 
-      <header className="relative z-10 pt-8 pb-4 px-4">
+      <header className="relative z-10 pt-12 pb-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-2 leading-tight">
-            <span className="bg-gradient-to-r from-amber-200 via-yellow-200 to-amber-200 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-amber-600 via-yellow-600 to-amber-600 bg-clip-text text-transparent">
               ระบบสุ่มรางวัลล็อตเตอรี่
             </span>
           </h1>
-          <p className="text-white/40 text-sm md:text-base font-light tracking-wide">
+          <p className="text-slate-500 text-sm md:text-base font-light tracking-wide">
             Lottery Prize Drawing System — 3 ตัวเลข
           </p>
           {result?.drawnAt && (
-            <p className="mt-2 text-xs text-white/25">
+            <p className="mt-2 text-xs text-slate-400">
               สุ่มล่าสุดเมื่อ: {new Date(result.drawnAt).toLocaleString('th-TH')}
             </p>
           )}
@@ -79,9 +85,9 @@ export default function Home() {
               onClick={handleDraw}
               disabled={isDrawing}
               id="btn-draw"
-              className="group relative px-10 py-5 rounded-2xl font-bold text-xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 text-gray-900 shadow-2xl shadow-amber-500/30 hover:shadow-amber-500/50 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 overflow-hidden"
+              className="group relative px-10 py-5 rounded-2xl font-bold text-xl bg-linear-to-r from-amber-500 via-yellow-500 to-amber-500 text-white shadow-2xl shadow-amber-500/30 hover:shadow-amber-500/50 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/25 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
               <span className="relative z-10 flex items-center gap-3">
                 <Icon
                   icon={isDrawing ? 'svg-spinners:ring-resize' : 'ph:shuffle-bold'}
@@ -96,29 +102,33 @@ export default function Home() {
         </section>
 
         <div className="max-w-4xl mx-auto mb-12 flex items-center gap-4">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/30">
+          <div className="flex-1 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
+          <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 shadow-xs">
             <Icon icon="ph:magnifying-glass-bold" className="w-4 h-4" />
           </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="flex-1 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
         </div>
 
         <section className="max-w-6xl mx-auto" id="check-section">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
-              <span className="bg-gradient-to-r from-violet-300 to-purple-300 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
                 ตรวจรางวัล
               </span>
             </h2>
-            <p className="text-white/40 text-sm">กรอกเลข 3 หลักเพื่อตรวจสอบผลรางวัล</p>
+            <p className="text-slate-500 text-sm">กรอกเลข 3 หลักเพื่อตรวจสอบผลรางวัล</p>
           </div>
-          <CheckPrizeForm onCheck={handleCheck} hasDrawn={result !== null} />
+          <CheckPrizeForm
+            onCheck={handleCheck}
+            hasDrawn={result !== null}
+            onWin={triggerConfetti}
+          />
         </section>
       </main>
 
-      <footer className="relative z-10 py-6 text-center border-t border-white/5">
-        <p className="text-xs text-white/20">
-          © 2026 Lottery Prize System — Suphachai Rotrit
+      <footer className="relative z-10 py-8 text-center border-t border-slate-100 mt-12">
+        <p className="text-xs text-slate-400 font-medium">
+          © {new Date().getFullYear()} Lottery Prize System — Suphachai Rotrit
         </p>
       </footer>
     </>
