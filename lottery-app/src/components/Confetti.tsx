@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-// โครงสร้างข้อมูลชิ้น confetti แต่ละชิ้น
 interface ConfettiPiece {
   id: number;
   left: number;
@@ -22,7 +21,6 @@ export default function Confetti({ active }: { active: boolean }) {
       const shapes: ConfettiPiece['shape'][] = ['square', 'circle', 'triangle'];
       const newPieces: ConfettiPiece[] = [];
 
-      // สร้างชิ้น confetti จำนวน 60 ชิ้น
       for (let i = 0; i < 60; i++) {
         newPieces.push({
           id: i,
@@ -37,7 +35,6 @@ export default function Confetti({ active }: { active: boolean }) {
 
       setPieces(newPieces);
 
-      // ล้าง confetti หลัง 4 วินาที
       const timeout = setTimeout(() => {
         setPieces([]);
       }, 4000);

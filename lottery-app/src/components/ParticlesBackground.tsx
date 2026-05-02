@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 
-// กำหนดโครงสร้างข้อมูลของ particle แต่ละตัว
 interface Particle {
   x: number;
   y: number;
@@ -27,13 +26,11 @@ export default function ParticlesBackground() {
     const particles: Particle[] = [];
     const colors = ['#8b5cf6', '#06b6d4', '#fbbf24', '#10b981', '#f43f5e'];
 
-    // ปรับขนาด canvas ให้เต็มหน้าจอ
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
-    // สร้าง particle ตามสัดส่วนขนาดหน้าจอ
     const createParticles = () => {
       const count = Math.floor((canvas.width * canvas.height) / 15000);
       for (let i = 0; i < count; i++) {
@@ -49,16 +46,13 @@ export default function ParticlesBackground() {
       }
     };
 
-    // วนลูป animation
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // วาดและเคลื่อนที่ particle แต่ละตัว
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // วนรอบขอบหน้าจอ
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;
@@ -71,7 +65,6 @@ export default function ParticlesBackground() {
         ctx.fill();
       });
 
-      // วาดเส้นเชื่อมระหว่าง particle ที่อยู่ใกล้กัน
       ctx.globalAlpha = 1;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
@@ -99,7 +92,6 @@ export default function ParticlesBackground() {
 
     window.addEventListener('resize', resize);
 
-    // ล้าง event listener และหยุด animation เมื่อ component ถูกทำลาย
     return () => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationId);

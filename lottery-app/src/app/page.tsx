@@ -69,7 +69,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-white/40 text-sm md:text-base font-light tracking-wide">
-            Lottery Prize Drawing System — 3 Digits
+            Lottery Prize Drawing System — 3 ตัวเลข
           </p>
           {result?.drawnAt && (
             <p className="mt-2 text-xs text-white/25">
@@ -125,7 +125,7 @@ export default function Home() {
 
       <footer className="relative z-10 py-6 text-center border-t border-white/5">
         <p className="text-xs text-white/20">
-          © 2026 Lottery Prize System — Front-end Developer Test
+          © 2026 Lottery Prize System — Suphachai Rotrit
         </p>
       </footer>
     </>

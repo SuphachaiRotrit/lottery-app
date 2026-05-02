@@ -16,7 +16,6 @@ export default function CheckPrizeForm({ onCheck, hasDrawn }: CheckPrizeFormProp
   const [isShaking, setIsShaking] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // กรองให้รับเฉพาะตัวเลข และจำกัดไม่เกิน 3 หลัก
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, '').slice(0, 3);
     setInputValue(value);
@@ -27,7 +26,6 @@ export default function CheckPrizeForm({ onCheck, hasDrawn }: CheckPrizeFormProp
   };
 
   const handleCheck = () => {
-    // ยังไม่ได้สุ่มรางวัล
     if (!hasDrawn) {
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);
@@ -36,7 +34,6 @@ export default function CheckPrizeForm({ onCheck, hasDrawn }: CheckPrizeFormProp
       return;
     }
 
-    // ไม่ได้กรอกเลข
     if (inputValue.length === 0) {
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);
@@ -44,14 +41,12 @@ export default function CheckPrizeForm({ onCheck, hasDrawn }: CheckPrizeFormProp
       return;
     }
 
-    // เติม 0 ด้านหน้าให้ครบ 3 หลัก แล้วตรวจรางวัล
     const paddedValue = inputValue.padStart(3, '0');
     const checkResult = onCheck(paddedValue);
     setResult(checkResult);
     setShowResult(true);
   };
 
-  // กด Enter เพื่อตรวจรางวัลได้เลย
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleCheck();
@@ -60,7 +55,6 @@ export default function CheckPrizeForm({ onCheck, hasDrawn }: CheckPrizeFormProp
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      {/* ช่องกรอกเลขและปุ่มตรวจ */}
       <div
         className="flex flex-col sm:flex-row gap-4 items-center justify-center"
         style={isShaking ? { animation: 'shake 0.5s ease-in-out' } : {}}
@@ -91,18 +85,15 @@ export default function CheckPrizeForm({ onCheck, hasDrawn }: CheckPrizeFormProp
         </button>
       </div>
 
-      {/* แสดงผลการตรวจ */}
       {showResult && (
         <div className="mt-8 animate-fade-in-up">
           {!hasDrawn ? (
-            // ยังไม่ได้สุ่มรางวัล
             <div className="glass-card rounded-2xl p-6 border-amber-500/30 text-center">
               <Icon icon="ph:warning-fill" className="w-12 h-12 text-amber-400 mx-auto mb-3" />
               <p className="text-lg text-amber-300 font-medium">กรุณาสุ่มรางวัลก่อนตรวจ</p>
               <p className="text-sm text-white/40 mt-1">กดปุ่ม &quot;ดำเนินการสุ่มรางวัล&quot; ด้านบน</p>
             </div>
           ) : result?.isWinner ? (
-            // ถูกรางวัล
             <div className="glass-card rounded-2xl p-6 border-emerald-500/30 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-green-500/5 to-emerald-500/5" />
               <div className="relative z-10 text-center">
@@ -131,7 +122,6 @@ export default function CheckPrizeForm({ onCheck, hasDrawn }: CheckPrizeFormProp
               </div>
             </div>
           ) : (
-            // ไม่ถูกรางวัล
             <div className="glass-card rounded-2xl p-6 border-rose-500/30 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-rose-500/5 via-pink-500/5 to-rose-500/5" />
               <div className="relative z-10">

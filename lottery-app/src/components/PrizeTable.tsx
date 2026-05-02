@@ -13,7 +13,6 @@ export default function PrizeTable({ result, isAnimating }: PrizeTableProps) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full max-w-6xl mx-auto">
 
-      {/* รางวัลที่ 1 — ยาวเต็มแถว */}
       <div className="lg:col-span-2 glass-card rounded-2xl p-6 md:p-8 border-amber-500/20 hover:border-amber-500/40 transition-all duration-500 group relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 via-yellow-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative z-10">
@@ -32,7 +31,6 @@ export default function PrizeTable({ result, isAnimating }: PrizeTableProps) {
         </div>
       </div>
 
-      {/* รางวัลที่ 2 */}
       <div className="glass-card rounded-2xl p-6 md:p-8 border-violet-500/20 hover:border-violet-500/40 transition-all duration-500 group relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-purple-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative z-10">
@@ -53,7 +51,6 @@ export default function PrizeTable({ result, isAnimating }: PrizeTableProps) {
         </div>
       </div>
 
-      {/* เลขข้างเคียงรางวัลที่ 1 */}
       <div className="glass-card rounded-2xl p-6 md:p-8 border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-500 group relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-teal-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative z-10">
@@ -74,7 +71,6 @@ export default function PrizeTable({ result, isAnimating }: PrizeTableProps) {
         </div>
       </div>
 
-      {/* รางวัลเลขท้าย 2 ตัว — ยาวเต็มแถว */}
       <div className="lg:col-span-2 glass-card rounded-2xl p-6 md:p-8 border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-500 group relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative z-10">

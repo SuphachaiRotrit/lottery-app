@@ -17,7 +17,7 @@ body {
   color: var(--foreground);
 }
 
-/* แถบเลื่อน (Scrollbar) */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -61,7 +61,6 @@ body {
   75% { transform: translateX(-4px); }
 }
 
-/* คลาส Animation */
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -74,7 +73,6 @@ body {
   animation: fade-in-up 0.5s ease-out forwards;
 }
 
-/* Confetti */
 .confetti-piece {
   position: fixed;
   width: 10px;
@@ -85,7 +83,6 @@ body {
   pointer-events: none;
 }
 
-/* การ์ดแบบ Glassmorphism */
 .glass-card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
@@ -93,13 +90,11 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ฟอนต์สำหรับแสดงตัวเลข */
 .number-display {
   font-family: 'Orbitron', var(--font-geist-mono), monospace;
   letter-spacing: 0.15em;
 }
 
-/* ข้อความแบบ Gradient สีทอง */
 .gradient-text {
   background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
   -webkit-background-clip: text;
@@ -107,7 +102,6 @@ body {
   background-clip: text;
 }
 
-/* ข้อความแบบ Gradient สีม่วง */
 .gradient-text-purple {
   background: linear-gradient(135deg, #a78bfa, #8b5cf6, #7c3aed);
   -webkit-background-clip: text;
