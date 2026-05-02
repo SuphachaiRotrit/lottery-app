@@ -62,9 +62,6 @@ export default function Home() {
               ระบบสุ่มรางวัลล็อตเตอรี่
             </span>
           </h1>
-          <p className="text-slate-500 text-sm md:text-base font-light tracking-wide">
-            Lottery Prize Drawing System — 3 ตัวเลข
-          </p>
           {result?.drawnAt && (
             <p className="mt-2 text-xs text-slate-400">
               สุ่มล่าสุดเมื่อ: {new Date(result.drawnAt).toLocaleString('th-TH')}
