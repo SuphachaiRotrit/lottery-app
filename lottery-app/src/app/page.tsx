@@ -3,10 +3,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 import { LotteryResult, drawAllPrizes, checkNumber, saveResult, loadResult, CheckResult } from '@/lib/lottery';
-import ParticlesBackground from '@/components/ParticlesBackground';
 import PrizeTable from '@/components/PrizeTable';
 import CheckPrizeForm from '@/components/CheckPrizeForm';
-import Confetti from '@/components/Confetti';
+import Confetti from '@/components/ui/Confetti';
 
 export default function Home() {
   const [result, setResult] = useState<LotteryResult | null>(null);
@@ -53,16 +52,10 @@ export default function Home() {
 
   return (
     <>
-      <ParticlesBackground />
       <Confetti key={confettiKey} active={showConfetti} />
 
       <header className="relative z-10 pt-8 pb-4 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/30 animate-float">
-              <Icon icon="noto:slot-machine" className="w-8 h-8 text-white" />
-            </div>
-          </div>
           <h1 className="text-3xl md:text-5xl font-extrabold mb-2 leading-tight">
             <span className="bg-gradient-to-r from-amber-200 via-yellow-200 to-amber-200 bg-clip-text text-transparent">
               ระบบสุ่มรางวัลล็อตเตอรี่

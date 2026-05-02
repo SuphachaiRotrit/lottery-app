@@ -18,7 +18,7 @@ export default function PrizeTable({ result, isAnimating }: PrizeTableProps) {
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
-              <Icon icon="ph:crown-fill" className="w-6 h-6 text-white" />
+              <Icon icon="icon-park-twotone:gold-medal-two" className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-xl font-bold gradient-text">รางวัลที่ 1</h3>
@@ -36,7 +36,7 @@ export default function PrizeTable({ result, isAnimating }: PrizeTableProps) {
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/20">
-              <Icon icon="ph:medal-fill" className="w-6 h-6 text-white" />
+              <Icon icon="streamline:hotel-two-star-remix" className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-xl font-bold gradient-text-purple">รางวัลที่ 2</h3>
@@ -56,7 +56,7 @@ export default function PrizeTable({ result, isAnimating }: PrizeTableProps) {
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-teal-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-              <Icon icon="ph:arrows-left-right-bold" className="w-6 h-6 text-white" />
+              <Icon icon="qlementine-icons:sort-ranking-desc-16" className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-300 to-teal-300 bg-clip-text text-transparent">เลขข้างเคียงรางวัลที่ 1</h3>
@@ -76,7 +76,7 @@ export default function PrizeTable({ result, isAnimating }: PrizeTableProps) {
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-              <Icon icon="ph:hash-bold" className="w-6 h-6 text-white" />
+              <Icon icon="mynaui:two-square" className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-xl font-bold bg-gradient-to-r from-emerald-300 to-green-300 bg-clip-text text-transparent">รางวัลเลขท้าย 2 ตัว</h3>
